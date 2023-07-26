@@ -211,7 +211,7 @@ function setStatus(status, img) {
             statusImage.src = "img/pixel5.png";
             break;
         case 4:
-            statusElement.textContent = "Results (sample):";
+            statusElement.textContent = "traits (sample(5)):";
             statusImage.src = img;
             break;
         default:
