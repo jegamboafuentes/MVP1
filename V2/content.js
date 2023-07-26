@@ -3,13 +3,13 @@
  * ExtPay is made available in this script through the manifest.json
  * "content_scripts" -> "js" array.
  */
-var extpay = ExtPay('tier2automaticnfttraitgenerator'); 
+var extpay = ExtPay('test2'); 
 
 // Add a "subscribe to Sample Extension!" button on every webpage.
 var button = document.createElement('button');
-button.innerText = 'Pay for ExtensionPay Sample Extension!'
-button.addEventListener('click', function(evt) {
-	extpay.openPaymentPage();
-}, true)
+button.innerText = 'Metaverse Professional Browser Extension: NFT trait generator works here! 🤺'
+// button.addEventListener('click', function(evt) {
+// 	extpay.openPaymentPage();
+// }, true)
 
 document.body.prepend(button);

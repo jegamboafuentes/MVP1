@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "MVP1",
-    "short_name": "metaverseprofessional_extension_template",
+    "name": "NFT trait generator",
+    "short_name": "MVP1",
     "version": "2.0",
     "author": "Metaverse Professional",
     "description": "Our extension makes it easier than ever to add unique traits to your NFTs, with just a few clicks.",
@@ -17,11 +17,11 @@
         },
         {
             "matches": ["http://*/", "https://*/"],
-            "js": ["ExtPay.js", "content.js"]
+            "js": ["ExtPay.js"]
         },
         {
             "matches": ["https://opensea.io/*", "https://studio.manifold.xyz/*"],
-            "js": ["marketplaces.js"],
+            "js": ["ExtPay.js","marketplaces.js", "content.js"],
             "run_at": "document_end"
         }
     ],
