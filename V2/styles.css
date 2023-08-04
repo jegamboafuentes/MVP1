@@ -1,24 +1,37 @@
 /* styles.css */
+body {
+    width: 400px;
+}
+
 footer {
     text-align: center;
 }
 
 #pay-now {
-    padding: 5px 10px; /* Adjust as needed */
-    font-size: 12px;   /* Adjust as needed */
-    width: 80px;       /* Adjust as needed */
-    height: 30px;      /* Adjust as needed */
+    padding: 5px 10px;
+    /* Adjust as needed */
+    font-size: 12px;
+    /* Adjust as needed */
+    width: 80px;
+    /* Adjust as needed */
+    height: 30px;
+    /* Adjust as needed */
 }
 
-#status{
+#status {
     text-align: center;
-    font-size: 22px;   /* Adjust as needed */
+    font-size: 22px;
+    /* Adjust as needed */
 }
 
-#actions{
+#actions {
     text-align: center;
 }
 
-#annotations{
+#annotations {
+    text-align: center;
+}
+
+h3 {
     text-align: center;
 }

@@ -81,9 +81,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const openseaSection = document.getElementById('opensea-section');
         const manifoldSection = document.getElementById('manifold-section');
 
+        const disableButtonsInSection = (sectionElement) => {
+            const buttons = sectionElement.getElementsByTagName('button');
+            for(let button of buttons){
+                button.disabled = true;
+            }
+        };
+
         extpay.getUser().then(user => {
             if (user.paid) {
-                // ...
                 if (url.startsWith('https://opensea.io/')) {
                     openseaSection.style.display = 'block';
                     manifoldSection.style.display = 'none';
@@ -95,13 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     manifoldSection.style.display = 'none';
                 }
             } else {
-                // ...
                 openseaSection.style.display = 'none';
                 manifoldSection.style.display = 'none';
+                // document.querySelector('#status-payment').innerHTML = '👩‍🚀 Pay one time fee to use Extension';
+                // If you want to disable buttons when the user didn't pay, uncomment the lines below
+                //disableButtonsInSection(openseaSection);
+                //disableButtonsInSection(manifoldSection);
             }
-        })
-
-
+        });
     });
 });
 
