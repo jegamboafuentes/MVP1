@@ -2,25 +2,28 @@
 // registered on ExtensionPay.com to test payments. You may need to
 // uninstall and reinstall the extension to make it work.
 // Don't forget to change the ID in background.js too!
-const extpay = ExtPay('test2')
+const extpay = ExtPay('nft-trait-generator')
 
 document.querySelector('#pay-now').addEventListener('click', function () {
     extpay.openPaymentPage();
 });
+
+var trial
 
 extpay.getUser().then(user => {
     if (user.paid == false) {
         document.querySelector('#pay-now').addEventListener('click', extpay.openTrialPage())
     }
     const now = new Date();
-    //const sevenDays = 1000*60*60*24*7 // in milliseconds
+    const sevenDays = 1000*60*60*24*7 // in milliseconds
     //const thirtySeconds = 30 * 1000  //# in milliseconds
-    const elevenMinutes = 11 * 60 * 1000
+    //const elevenMinutes = 11 * 60 * 1000
     //const threeMinutes = 3 * 60 * 1000
-    if (user.trialStartedAt && (now - user.trialStartedAt) < elevenMinutes) {
-        const remainingTimeInMinutes = (elevenMinutes - (now - user.trialStartedAt)) / 60000
+    if (user.trialStartedAt && (now - user.trialStartedAt) < sevenDays) {
+        const remainingTimeInMinutes = (sevenDays - (now - user.trialStartedAt)) / 60000
         document.querySelector('#user-message').innerHTML = `trial active, remaining time ⌛ ${remainingTimeInMinutes.toFixed(2)} minutes`
         document.querySelector('button').remove()
+        trial = true
         // user's trial is active
     } else {
         // user's trial is not active
@@ -89,7 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         extpay.getUser().then(user => {
-            if (user.paid) {
+            const now = new Date();
+            const sevenDays = 1000*60*60*24*7 // in milliseconds
+            if ((user.paid)||(user.trialStartedAt && (now - user.trialStartedAt) < sevenDays)) {
                 if (url.startsWith('https://opensea.io/')) {
                     openseaSection.style.display = 'block';
                     manifoldSection.style.display = 'none';
