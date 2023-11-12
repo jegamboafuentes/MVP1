@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h3>NFT trait generator</h3>
+        <img src="img/project.png" alt="My Extension logo" width="99" id="status-image">
+        <p id="user-message" style="font-size: .66 rem;">User hasn't pay 😢</p>
+        <button id="pay-now">Pay now</button>
+    </header>
+    <span id="status-payment"></span>
+    <!-- Your Chrome extension -->
+    <div id="status">
+        <span id="status-text"></span>
+        <!-- <img style="width:128px;height:128px;" id="status-image" /> -->
+    </div>
+    <div id="annotations"></div>
+    <div id="actions" style="display: none;">
+        <div id="opensea-section">
+            <h2>OpenSea</h2>
+            <button id="openSeaLevels_button">Levels</button>
+            <button id="openSeaStats_button">Stats</button>
+        </div>
+        <div id="manifold-section">
+            <h2>Manifold studio</h2>
+            <button id="manifold_button1">Property Name</button>
+            <button id="manifold_button2">Value</button>
+            <button id="manifold_button3">Max Value</button>
+        </div>
+    </div>
+    <!-- END Your Chrome extension -->
+    <footer>
+        <p>This is a Browser extension from <a href="https://metaverseprofessional.tech/">Metaverse Professional</a></p>
+        <img src="img/LOGO1.png" alt="Project logo" width="33">
+    </footer>
+    <script src="ExtPay.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>
