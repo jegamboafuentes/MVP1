@@ -2,10 +2,10 @@
     "manifest_version": 3,
     "name": "NFT trait generator",
     "short_name": "MVP1",
-    "version": "3.0",
+    "version": "2.1",
     "author": "Metaverse Professional",
     "description": "Our extension makes it easier than ever to add unique traits to your NFTs, with just a few clicks.",
-    "permissions": ["contextMenus", "storage", "tabs"],
+    "permissions": ["contextMenus", "storage", "tabs", "activeTab"],
     "background": {
         "service_worker": "background.js"
     },

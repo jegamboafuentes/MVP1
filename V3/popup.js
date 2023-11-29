@@ -50,6 +50,8 @@ const annotationsContainer = document.getElementById("annotations");
 const statusElement = document.getElementById("status-text");
 
 chrome.runtime.sendMessage({ type: "getImageUrl" }, (response) => {
+    console.log("ENRIQUE 11-13-23")
+    console.log(response)
     if (response.imageUrl) {
         setStatus(2, response.imageUrl); // Image loaded
 
