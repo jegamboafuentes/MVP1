@@ -5,7 +5,7 @@
     "version": "2.1",
     "author": "Metaverse Professional",
     "description": "Our extension makes it easier than ever to add unique traits to your NFTs, with just a few clicks.",
-    "permissions": ["contextMenus", "storage", "tabs", "activeTab"],
+    "permissions": ["contextMenus", "storage", "tabs"],
     "background": {
         "service_worker": "background.js"
     },
