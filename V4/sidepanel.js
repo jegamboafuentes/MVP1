@@ -67,6 +67,7 @@ function loadStoredImage() {
 document.getElementById('get-properties-button').addEventListener('click', function () {
     const imageUrl = document.getElementById('uploaded-image').src;
     if (imageUrl) {
+        document.getElementById('api-loading').style.display = 'block';
         fetch('https://api1-dot-metaverseprofessionalapis.uk.r.appspot.com/generateNFTMetadata', {
             method: 'POST',
             headers: {
@@ -79,57 +80,84 @@ document.getElementById('get-properties-button').addEventListener('click', funct
         })
         .then(response => response.json())
         .then(data => {
+            document.getElementById('api-loading').style.display = 'none';
+            document.getElementById('api-results').style.display = 'block';
             displayResults(data);
         })
         .catch(error => {
-            console.error('Error:', error);
             document.getElementById('api-results').innerHTML = error;
+            console.error('Error:', error); 
         });
     }
 });
 
 function displayResults(data) {
     document.getElementById('nft-title').innerText = data.Title;
+    document.getElementById('copy-title').style.display = 'block';
     document.getElementById('nft-description').innerText = data.Description;
+    document.getElementById('copy-description').style.display = 'block';
     
-    const traitsList = document.getElementById('traits-list');
-    traitsList.innerHTML = '';
-    data.Traits.forEach((trait, index) => {
-        if (index < 3) {
-            const traitElement = document.createElement('p');
-            traitElement.innerText = `${trait.Trait_type}: ${trait.Value}`;
-            traitsList.appendChild(traitElement);
-        }
+    const traitsTable = document.getElementById('traits-table');
+    traitsTable.innerHTML = '';
+    data.Traits.slice(0, 3).forEach(trait => {
+        const row = traitsTable.insertRow();
+        const traitTypeCell = row.insertCell(0);
+        const valueCell = row.insertCell(1);
+        const copyCell = row.insertCell(2);
+
+        traitTypeCell.innerText = trait.Trait_type;
+        valueCell.innerText = trait.Value;
+
+        const copyButton = document.createElement('button');
+        copyButton.innerText = 'Copy';
+        copyButton.addEventListener('click', () => {
+            copyToClipboard(`${trait.Trait_type}: ${trait.Value}`);
+        });
+        copyCell.appendChild(copyButton);
     });
 
     document.getElementById('show-more').addEventListener('click', function () {
-        traitsList.innerHTML = '';
+        traitsTable.innerHTML = '';
         data.Traits.forEach(trait => {
-            const traitElement = document.createElement('p');
-            traitElement.innerText = `${trait.Trait_type}: ${trait.Value}`;
-            traitsList.appendChild(traitElement);
+            const row = traitsTable.insertRow();
+            const traitTypeCell = row.insertCell(0);
+            const valueCell = row.insertCell(1);
+            const copyCell = row.insertCell(2);
+
+            traitTypeCell.innerText = trait.Trait_type;
+            valueCell.innerText = trait.Value;
+
+            const copyButton = document.createElement('button');
+            copyButton.innerText = 'Copy';
+            copyButton.addEventListener('click', () => {
+                copyToClipboard(`${trait.Trait_type}: ${trait.Value}`);
+            });
+            copyCell.appendChild(copyButton);
         });
         document.getElementById('show-more').style.display = 'none';
         document.getElementById('show-less').style.display = 'block';
     });
 
     document.getElementById('show-less').addEventListener('click', function () {
-        traitsList.innerHTML = '';
+        traitsTable.innerHTML = '';
         data.Traits.slice(0, 3).forEach(trait => {
-            const traitElement = document.createElement('p');
-            traitElement.innerText = `${trait.Trait_type}: ${trait.Value}`;
-            traitsList.appendChild(traitElement);
+            const row = traitsTable.insertRow();
+            const traitTypeCell = row.insertCell(0);
+            const valueCell = row.insertCell(1);
+            const copyCell = row.insertCell(2);
+
+            traitTypeCell.innerText = trait.Trait_type;
+            valueCell.innerText = trait.Value;
+
+            const copyButton = document.createElement('button');
+            copyButton.innerText = 'Copy';
+            copyButton.addEventListener('click', () => {
+                copyToClipboard(`${trait.Trait_type}: ${trait.Value}`);
+            });
+            copyCell.appendChild(copyButton);
         });
         document.getElementById('show-more').style.display = 'block';
         document.getElementById('show-less').style.display = 'none';
-    });
-
-    document.getElementById('copy-title').addEventListener('click', function () {
-        copyToClipboard(data.Title);
-    });
-
-    document.getElementById('copy-description').addEventListener('click', function () {
-        copyToClipboard(data.Description);
     });
 }
 
