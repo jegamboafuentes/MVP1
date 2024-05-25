@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "Metaverse Professional Extension Template V2",
+  "name": "NFT properties generator",
   "short_name": "metaverseprofessional_extension_template",
   "author": "enrique@metaverseprofessional.tech",
-  "version": "1.0",
-  "description": "Shows how to display the same side panel on every site using the Side Panel API.",
+  "version": "4.0",
+  "description": "Our extension makes it easier than ever to add unique properties to your NFTs, with just a few clicks",
   "icons": {
     "16": "images/icon-16.png",
     "48": "images/icon-48.png",

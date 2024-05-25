@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" href="https://unpkg.com/mvp.css">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <header>
-            <h3 style="width: 222px">My Extension</h3>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Automatic NFT Properties Generator</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h3>Automatic NFT Properties Generator</h3>
             <img src="images/icon-128.png" alt="My Extension logo" width="33">
-            <p id="user-message" style="font-size: .66 rem;">User hasn't pay 😢</p>
-            <button id="pay-now">Pay now</button>
-        </header>
-        <!-- Your Chrome extension -->
-        <!-- END Your Chrome extension -->
-        <footer>
-            <p>My Extension is a product of <a href="https://metaverseprofessional.tech/">Metaverse Professional</a></p>
-            <img src="images/LOGO1.png" alt="Project logo" width="33">
-        </footer>
-        <script src="ExtPay.js"></script>
-        <script src="sidepanel.js"></script>
-    </body>
+            <p id="user-message">User hasn't paid 1 time licence 😢</p>
+            <button id="pay-now">Get access</button>
+            <p id="user-message-licence-info">(One-time payment for lifetime access)</p>
+        </div>
+    </header>
+
+    <!-- Your Chrome extension -->
+    <!-- END Your Chrome extension -->
+
+    <footer>
+        <p>My Extension is a product of <a href="https://metaverseprofessional.tech/" target="_blank" rel="noopener noreferrer">Metaverse Professional</a></p>
+        <img src="images/LOGO1.png" alt="Project logo" width="33">
+    </footer>
+
+    <script src="ExtPay.js"></script>
+    <script src="sidepanel.js"></script>
+</body>
 </html>

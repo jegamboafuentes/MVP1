@@ -22,6 +22,7 @@ extpay.getUser().then(user => {
         if (user.paid) {
             document.querySelector('#user-message').innerHTML = 'User has paid ✅'
             document.querySelector('button').remove()
+            document.querySelector('#user-message-licence-info').remove()
         } else if (user.trialStartedAt == null) {
             document.querySelector('#user-message').innerHTML = 'User has not started a trial yet.'
         }
