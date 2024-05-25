@@ -24,7 +24,17 @@
         <input type="file" id="image-upload" accept="image/*">
         <img id="uploaded-image" src="" alt="Uploaded Image">
         <button id="get-properties-button">Get Properties</button>
-        <div id="api-results"></div>
+        <div id="api-results">
+            <h4 id="nft-title"></h4>
+            <button id="copy-title">Copy Title</button>
+            <p id="nft-description"></p>
+            <button id="copy-description">Copy Description</button>
+            <div id="traits-container">
+                <div id="traits-list"></div>
+                <button id="show-more">Show More</button>
+                <button id="show-less" style="display: none;">Show Less</button>
+            </div>
+        </div>
     </section>
 
     <footer>

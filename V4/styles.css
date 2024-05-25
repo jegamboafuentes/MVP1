@@ -3,20 +3,47 @@ footer {
     text-align: center;
 }
 
-
 #image-upload-section {
     position: relative;
 }
+
 #get-properties-button {
     top: 10px;
     left: 10px;
     display: none;
 }
+
 #image-upload-label {
     display: inline-block;
 }
+
 #uploaded-image {
     display: block;
     max-width: 100%;
+    margin-top: 10px;
+}
+
+#api-results {
+    margin-top: 20px;
+}
+
+#nft-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#nft-description {
+    margin-bottom: 10px;
+}
+
+#traits-container {
+    margin-top: 20px;
+}
+
+#traits-list p {
+    margin: 5px 0;
+}
+
+button {
     margin-top: 10px;
 }
