@@ -93,9 +93,9 @@ document.getElementById('get-properties-button').addEventListener('click', funct
 
 function displayResults(data) {
     document.getElementById('nft-title').innerText = data.Title;
-    document.getElementById('copy-title').style.display = 'block';
+    document.getElementById('copy-title').style.display = 'inline-block';
     document.getElementById('nft-description').innerText = data.Description;
-    document.getElementById('copy-description').style.display = 'block';
+    document.getElementById('copy-description').style.display = 'inline-block';
 
     const traitsTable = document.getElementById('traits-table');
     traitsTable.innerHTML = '';
@@ -112,7 +112,7 @@ function displayResults(data) {
 
         const traitCopyButton = document.createElement('button');
         traitCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
-        traitCopyButton.classList.add('icon-button');
+        traitCopyButton.classList.add('icon-button', 'narrow-column');
         traitCopyButton.addEventListener('click', () => {
             copyToClipboard(trait.Trait_type);
         });
@@ -120,14 +120,14 @@ function displayResults(data) {
 
         const valueCopyButton = document.createElement('button');
         valueCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
-        valueCopyButton.classList.add('icon-button');
+        valueCopyButton.classList.add('icon-button', 'narrow-column');
         valueCopyButton.addEventListener('click', () => {
             copyToClipboard(trait.Value);
         });
         valueCopyCell.appendChild(valueCopyButton);
 
         const fullCopyButton = document.createElement('button');
-        fullCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
+        fullCopyButton.innerHTML = '<i class="fas fa-copy"></i><i class="fas fa-copy"></i>';
         fullCopyButton.classList.add('icon-button');
         fullCopyButton.addEventListener('click', () => {
             copyToClipboard(`${trait.Trait_type}: ${trait.Value}`);
@@ -159,7 +159,7 @@ function displayResults(data) {
 
             const traitCopyButton = document.createElement('button');
             traitCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
-            traitCopyButton.classList.add('icon-button');
+            traitCopyButton.classList.add('icon-button', 'narrow-column');
             traitCopyButton.addEventListener('click', () => {
                 copyToClipboard(trait.Trait_type);
             });
@@ -167,14 +167,14 @@ function displayResults(data) {
 
             const valueCopyButton = document.createElement('button');
             valueCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
-            valueCopyButton.classList.add('icon-button');
+            valueCopyButton.classList.add('icon-button', 'narrow-column');
             valueCopyButton.addEventListener('click', () => {
                 copyToClipboard(trait.Value);
             });
             valueCopyCell.appendChild(valueCopyButton);
 
             const fullCopyButton = document.createElement('button');
-            fullCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
+            fullCopyButton.innerHTML = '<i class="fas fa-copy"></i><i class="fas fa-copy"></i>';
             fullCopyButton.classList.add('icon-button');
             fullCopyButton.addEventListener('click', () => {
                 copyToClipboard(`${trait.Trait_type}: ${trait.Value}`);
@@ -200,7 +200,7 @@ function displayResults(data) {
 
             const traitCopyButton = document.createElement('button');
             traitCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
-            traitCopyButton.classList.add('icon-button');
+            traitCopyButton.classList.add('icon-button', 'narrow-column');
             traitCopyButton.addEventListener('click', () => {
                 copyToClipboard(trait.Trait_type);
             });
@@ -208,14 +208,14 @@ function displayResults(data) {
 
             const valueCopyButton = document.createElement('button');
             valueCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
-            valueCopyButton.classList.add('icon-button');
+            valueCopyButton.classList.add('icon-button', 'narrow-column');
             valueCopyButton.addEventListener('click', () => {
                 copyToClipboard(trait.Value);
             });
             valueCopyCell.appendChild(valueCopyButton);
 
             const fullCopyButton = document.createElement('button');
-            fullCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
+            fullCopyButton.innerHTML = '<i class="fas fa-copy"></i><i class="fas fa-copy"></i>';
             fullCopyButton.classList.add('icon-button');
             fullCopyButton.addEventListener('click', () => {
                 copyToClipboard(`${trait.Trait_type}: ${trait.Value}`);

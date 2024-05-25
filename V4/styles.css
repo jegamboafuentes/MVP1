@@ -116,9 +116,19 @@ footer {
     border: none;
     cursor: pointer;
     font-size: 1em;
-    color: #4CAF50;
+    color: #2960b3;
 }
 
 .icon-button:hover {
-    color: #45a049;
+    color: #482d94;
+}
+
+/* Add this CSS */
+.narrow-column {
+    width: 30px; /* Adjust the width as necessary */
+}
+
+#copy-title, #copy-description {
+    display: inline-block;
+    margin-left: 10px;
 }
