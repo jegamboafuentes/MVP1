@@ -95,6 +95,7 @@ document.getElementById('get-properties-button').addEventListener('click', funct
         })
         .catch(error => {
             console.error('Error:', error);
+            document.getElementById('api-results').innerHTML = error;
         });
     }
 });
