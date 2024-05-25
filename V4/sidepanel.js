@@ -110,6 +110,7 @@ function displayResults(data) {
 
         const copyButton = document.createElement('button');
         copyButton.innerText = 'Copy';
+        copyButton.classList.add('secondary-button');
         copyButton.addEventListener('click', () => {
             copyToClipboard(`${trait.Trait_type}: ${trait.Value}`);
         });
@@ -129,6 +130,7 @@ function displayResults(data) {
 
             const copyButton = document.createElement('button');
             copyButton.innerText = 'Copy';
+            copyButton.classList.add('secondary-button');
             copyButton.addEventListener('click', () => {
                 copyToClipboard(`${trait.Trait_type}: ${trait.Value}`);
             });
@@ -151,6 +153,7 @@ function displayResults(data) {
 
             const copyButton = document.createElement('button');
             copyButton.innerText = 'Copy';
+            copyButton.classList.add('secondary-button');
             copyButton.addEventListener('click', () => {
                 copyToClipboard(`${trait.Trait_type}: ${trait.Value}`);
             });

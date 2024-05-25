@@ -8,14 +8,12 @@
     <title>Automatic NFT Properties Generator</title>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h3>Automatic NFT Properties Generator</h3>
-            <img src="images/icon-128.png" alt="My Extension logo" width="33">
-            <p id="user-message">User hasn't paid 1 time licence 😢</p>
-            <button id="pay-now">Get access</button>
-            <p id="user-message-licence-info">(One-time payment for lifetime access)</p>
-        </div>
+    <header class="header-content">
+        <h3>Automatic NFT Properties Generator</h3>
+        <img src="images/icon-128.png" alt="My Extension logo" width="33">
+        <p id="user-message">User hasn't paid 1 time licence 😢</p>
+        <button id="pay-now">Get access</button>
+        <p id="user-message-licence-info">(One-time payment for lifetime access)</p>
     </header>
 
     <!-- Image upload section -->
@@ -23,17 +21,17 @@
         <label id="image-upload-label" for="image-upload">Choose an image</label>
         <input type="file" id="image-upload" accept="image/*">
         <img id="uploaded-image" src="" alt="Uploaded Image">
-        <button id="get-properties-button">Get Properties</button>
+        <button id="get-properties-button" class="primary-button">Get Properties</button>
         <div id="api-loading" style="display: none;">API loading 🫷</div>
         <div id="api-results" style="display: none;">
             <h4 id="nft-title"></h4>
-            <button id="copy-title">Copy Title</button>
+            <button id="copy-title" class="primary-button">Copy Title</button>
             <p id="nft-description"></p>
-            <button id="copy-description">Copy Description</button>
+            <button id="copy-description" class="primary-button">Copy Description</button>
             <div id="traits-container">
                 <table id="traits-table"></table>
-                <button id="show-more">Show More</button>
-                <button id="show-less" style="display: none;">Show Less</button>
+                <button id="show-more" class="primary-button">Show More</button>
+                <button id="show-less" class="primary-button" style="display: none;">Show Less</button>
             </div>
         </div>
     </section>
