@@ -16,7 +16,7 @@ extpay.getUser().then(user => {
         document.querySelector('button').remove();
     } else {
         if (user.paid) {
-            document.querySelector('#user-message').innerHTML = 'User has paid ✅';
+            document.querySelector('#user-message').innerHTML = 'User has paid ✅, 🙏';
             document.querySelector('button').remove();
             document.querySelector('#user-message-licence-info').remove();
             document.getElementById('image-upload-section').style.display = 'block';
