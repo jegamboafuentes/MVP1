@@ -30,5 +30,5 @@
   "side_panel": {
     "default_path": "sidepanel.html"
   },
-  "permissions": ["sidePanel","storage"]
+  "permissions": ["sidePanel","storage","cookies"]
 }

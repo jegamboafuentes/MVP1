@@ -78,16 +78,16 @@ document.getElementById('get-properties-button').addEventListener('click', funct
                 context: ""
             })
         })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('api-loading').style.display = 'none';
-            document.getElementById('api-results').style.display = 'block';
-            displayResults(data);
-        })
-        .catch(error => {
-            document.getElementById('api-results').innerHTML = error;
-            console.error('Error:', error); 
-        });
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('api-loading').style.display = 'none';
+                document.getElementById('api-results').style.display = 'block';
+                displayResults(data);
+            })
+            .catch(error => {
+                document.getElementById('api-results').innerHTML = error;
+                console.error('Error:', error);
+            });
     }
 });
 
@@ -96,25 +96,52 @@ function displayResults(data) {
     document.getElementById('copy-title').style.display = 'block';
     document.getElementById('nft-description').innerText = data.Description;
     document.getElementById('copy-description').style.display = 'block';
-    
+
     const traitsTable = document.getElementById('traits-table');
     traitsTable.innerHTML = '';
     data.Traits.slice(0, 3).forEach(trait => {
         const row = traitsTable.insertRow();
         const traitTypeCell = row.insertCell(0);
-        const valueCell = row.insertCell(1);
-        const copyCell = row.insertCell(2);
+        const traitCopyCell = row.insertCell(1);
+        const valueCell = row.insertCell(2);
+        const valueCopyCell = row.insertCell(3);
+        const fullCopyCell = row.insertCell(4);
 
         traitTypeCell.innerText = trait.Trait_type;
         valueCell.innerText = trait.Value;
 
-        const copyButton = document.createElement('button');
-        copyButton.innerText = 'Copy';
-        copyButton.classList.add('secondary-button');
-        copyButton.addEventListener('click', () => {
+        const traitCopyButton = document.createElement('button');
+        traitCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
+        traitCopyButton.classList.add('icon-button');
+        traitCopyButton.addEventListener('click', () => {
+            copyToClipboard(trait.Trait_type);
+        });
+        traitCopyCell.appendChild(traitCopyButton);
+
+        const valueCopyButton = document.createElement('button');
+        valueCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
+        valueCopyButton.classList.add('icon-button');
+        valueCopyButton.addEventListener('click', () => {
+            copyToClipboard(trait.Value);
+        });
+        valueCopyCell.appendChild(valueCopyButton);
+
+        const fullCopyButton = document.createElement('button');
+        fullCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
+        fullCopyButton.classList.add('icon-button');
+        fullCopyButton.addEventListener('click', () => {
             copyToClipboard(`${trait.Trait_type}: ${trait.Value}`);
         });
-        copyCell.appendChild(copyButton);
+        fullCopyCell.appendChild(fullCopyButton);
+    });
+
+    // Ensure event listeners for title and description copy buttons
+    document.getElementById('copy-title').addEventListener('click', function () {
+        copyToClipboard(document.getElementById('nft-title').innerText);
+    });
+
+    document.getElementById('copy-description').addEventListener('click', function () {
+        copyToClipboard(document.getElementById('nft-description').innerText);
     });
 
     document.getElementById('show-more').addEventListener('click', function () {
@@ -122,19 +149,37 @@ function displayResults(data) {
         data.Traits.forEach(trait => {
             const row = traitsTable.insertRow();
             const traitTypeCell = row.insertCell(0);
-            const valueCell = row.insertCell(1);
-            const copyCell = row.insertCell(2);
+            const traitCopyCell = row.insertCell(1);
+            const valueCell = row.insertCell(2);
+            const valueCopyCell = row.insertCell(3);
+            const fullCopyCell = row.insertCell(4);
 
             traitTypeCell.innerText = trait.Trait_type;
             valueCell.innerText = trait.Value;
 
-            const copyButton = document.createElement('button');
-            copyButton.innerText = 'Copy';
-            copyButton.classList.add('secondary-button');
-            copyButton.addEventListener('click', () => {
+            const traitCopyButton = document.createElement('button');
+            traitCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
+            traitCopyButton.classList.add('icon-button');
+            traitCopyButton.addEventListener('click', () => {
+                copyToClipboard(trait.Trait_type);
+            });
+            traitCopyCell.appendChild(traitCopyButton);
+
+            const valueCopyButton = document.createElement('button');
+            valueCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
+            valueCopyButton.classList.add('icon-button');
+            valueCopyButton.addEventListener('click', () => {
+                copyToClipboard(trait.Value);
+            });
+            valueCopyCell.appendChild(valueCopyButton);
+
+            const fullCopyButton = document.createElement('button');
+            fullCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
+            fullCopyButton.classList.add('icon-button');
+            fullCopyButton.addEventListener('click', () => {
                 copyToClipboard(`${trait.Trait_type}: ${trait.Value}`);
             });
-            copyCell.appendChild(copyButton);
+            fullCopyCell.appendChild(fullCopyButton);
         });
         document.getElementById('show-more').style.display = 'none';
         document.getElementById('show-less').style.display = 'block';
@@ -145,19 +190,37 @@ function displayResults(data) {
         data.Traits.slice(0, 3).forEach(trait => {
             const row = traitsTable.insertRow();
             const traitTypeCell = row.insertCell(0);
-            const valueCell = row.insertCell(1);
-            const copyCell = row.insertCell(2);
+            const traitCopyCell = row.insertCell(1);
+            const valueCell = row.insertCell(2);
+            const valueCopyCell = row.insertCell(3);
+            const fullCopyCell = row.insertCell(4);
 
             traitTypeCell.innerText = trait.Trait_type;
             valueCell.innerText = trait.Value;
 
-            const copyButton = document.createElement('button');
-            copyButton.innerText = 'Copy';
-            copyButton.classList.add('secondary-button');
-            copyButton.addEventListener('click', () => {
+            const traitCopyButton = document.createElement('button');
+            traitCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
+            traitCopyButton.classList.add('icon-button');
+            traitCopyButton.addEventListener('click', () => {
+                copyToClipboard(trait.Trait_type);
+            });
+            traitCopyCell.appendChild(traitCopyButton);
+
+            const valueCopyButton = document.createElement('button');
+            valueCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
+            valueCopyButton.classList.add('icon-button');
+            valueCopyButton.addEventListener('click', () => {
+                copyToClipboard(trait.Value);
+            });
+            valueCopyCell.appendChild(valueCopyButton);
+
+            const fullCopyButton = document.createElement('button');
+            fullCopyButton.innerHTML = '<i class="fas fa-copy"></i>';
+            fullCopyButton.classList.add('icon-button');
+            fullCopyButton.addEventListener('click', () => {
                 copyToClipboard(`${trait.Trait_type}: ${trait.Value}`);
             });
-            copyCell.appendChild(copyButton);
+            fullCopyCell.appendChild(fullCopyButton);
         });
         document.getElementById('show-more').style.display = 'block';
         document.getElementById('show-less').style.display = 'none';
