@@ -132,3 +132,15 @@ footer {
     display: inline-block;
     margin-left: 10px;
 }
+
+/* Add styling for the context input field */
+#context-input {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+

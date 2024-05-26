@@ -84,6 +84,7 @@ function displayUploadedImage(imageDataUrl) {
 // Fetch properties of the uploaded image
 function fetchImageProperties() {
     const imageUrl = document.getElementById('uploaded-image').src;
+    const context = document.getElementById('context-input').value; // Get the context input value
     if (imageUrl) {
         showElement('api-loading');
         fetch('https://api1-dot-metaverseprofessionalapis.uk.r.appspot.com/generateNFTMetadata', {
@@ -93,7 +94,7 @@ function fetchImageProperties() {
             },
             body: JSON.stringify({
                 image_url: imageUrl,
-                context: ""
+                context: context // Include the context in the request
             })
         })
         .then(response => response.json())
@@ -108,6 +109,7 @@ function fetchImageProperties() {
         });
     }
 }
+
 
 // Display the results of the image properties
 function displayResults(data) {
