@@ -97,7 +97,10 @@ function fetchImageProperties() {
                 context: context // Include the context in the request
             })
         })
-        .then(response => response.json())
+        .then(response => {
+            console.log('Raw API Response:', response); // Log the raw response here
+            return response.json();
+          })
         .then(data => {
             hideElement('api-loading');
             showElement('api-results');

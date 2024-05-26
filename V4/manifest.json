@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "NFT properties generator",
-  "short_name": "metaverseprofessional_extension_template",
+  "short_name": "NFT properties generator",
   "author": "enrique@metaverseprofessional.tech",
   "version": "4.0",
   "description": "Our extension makes it easier than ever to add unique properties to your NFTs, with just a few clicks",
