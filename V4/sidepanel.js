@@ -136,7 +136,7 @@ function appendTraitRow(table, trait) {
     appendCopyButton(row.insertCell(1), trait.Trait_type);
     row.insertCell(2).innerText = trait.Value;
     appendCopyButton(row.insertCell(3), trait.Value);
-    appendCopyButton(row.insertCell(4), `${trait.Trait_type}: ${trait.Value}`);
+    appendCopyButton2(row.insertCell(4), `${trait.Trait_type}: ${trait.Value}`);
     
 }
 
@@ -144,6 +144,15 @@ function appendTraitRow(table, trait) {
 function appendCopyButton(cell, text) {
     const button = document.createElement('button');
     button.innerHTML = '<i class="fas fa-copy"></i>';
+    button.classList.add('icon-button');
+    button.addEventListener('click', () => copyToClipboard(text));
+    cell.appendChild(button);
+}
+
+// Append a copy button to a table cell
+function appendCopyButton2(cell, text) {
+    const button = document.createElement('button');
+    button.innerHTML = '<i class="fas fa-copy"></i> <i class="fas fa-copy"></i>';
     button.classList.add('icon-button');
     button.addEventListener('click', () => copyToClipboard(text));
     cell.appendChild(button);
