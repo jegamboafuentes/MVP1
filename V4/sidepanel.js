@@ -1,7 +1,7 @@
-const extpay = ExtPay('test2');
+const extpay = ExtPay('nft-trait-generator');
 
-// Event listener for the pay-now button
-document.querySelector('#pay-now').addEventListener('click', function () {
+// Event listener for the pay-now-nft button
+document.querySelector('#pay-now-nft')?.addEventListener('click', function () {
     extpay.openPaymentPage();
 });
 
@@ -21,14 +21,14 @@ document.getElementById('get-properties-button').addEventListener('click', fetch
 // Handle the user state based on their payment and trial status
 function handleUserState(user) {
     if (!user.paid) {
-        document.querySelector('#pay-now').addEventListener('click', extpay.openTrialPage());
+        document.querySelector('#pay-now-nft').addEventListener('click', extpay.openTrialPage());
     }
 
     const now = new Date();
     const elevenMinutes = 11 * 60 * 1000;
-    if (user.trialStartedAt && (now - user.trialStartedAt) < elevenMinutes) {
-        const remainingTimeInMinutes = (elevenMinutes - (now - user.trialStartedAt)) / 60000;
-        displayMessage(`trial active, remaining time ⌛ ${remainingTimeInMinutes.toFixed(2)} minutes`);
+    if (user.trialStartedAt && (now - user.trialStartedAt) < FIVE_DAYS) {
+        const remainingTimeInDays = (FIVE_DAYS - (now - user.trialStartedAt)) / (1000 * 60 * 60 * 24);
+        displayMessage(`trial active, remaining time ⌛ ${remainingTimeInDays.toFixed(2)} days`);
         removeElement('button');
     } else if (user.paid) {
         displayMessage('User has paid ✅, 🙏');
@@ -97,19 +97,19 @@ function fetchImageProperties() {
                 context: context // Include the context in the request
             })
         })
-        .then(response => {
-            console.log('Raw API Response:', response); // Log the raw response here
-            return response.json();
-          })
-        .then(data => {
-            hideElement('api-loading');
-            showElement('api-results');
-            displayResults(data);
-        })
-        .catch(error => {
-            displayErrorMessage(error);
-            console.error('Error:', error);
-        });
+            .then(response => {
+                console.log('Raw API Response:', response); // Log the raw response here
+                return response.json();
+            })
+            .then(data => {
+                hideElement('api-loading');
+                showElement('api-results');
+                displayResults(data);
+            })
+            .catch(error => {
+                displayErrorMessage(error);
+                console.error('Error:', error);
+            });
     }
 }
 
@@ -142,7 +142,7 @@ function appendTraitRow(table, trait) {
     row.insertCell(2).innerText = trait.Value;
     appendCopyButton(row.insertCell(3), trait.Value);
     appendCopyButton2(row.insertCell(4), `${trait.Trait_type}: ${trait.Value}`);
-    
+
 }
 
 // Append a copy button to a table cell
